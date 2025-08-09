@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1050963266558",
+    "project_id": "coursezego-267fe",
+    "storage_bucket": "coursezego-267fe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050963266558:android:11067c67a36e36c4e18eaf",
+        "android_client_info": {
+          "package_name": "com.example.coursezego"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVN-KWzxEAaAlnCbg33llVm8xwgtm71AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
