@@ -1,4 +1,6 @@
+import 'package:coursezego/loing.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zego_uikit/zego_uikit.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
@@ -7,10 +9,10 @@ import 'firebase_options.dart';
 import 'homepage.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+late SharedPreferences sharedPreferences;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-
-
+  sharedPreferences = await SharedPreferences.getInstance();
 // ...
 
   await Firebase.initializeApp(
@@ -42,7 +44,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomePage(),
+      home:(sharedPreferences.getString("username") == null)?
+      const LoginPage():const HomePage(),
     );
   }
 }
