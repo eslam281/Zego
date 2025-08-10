@@ -4,6 +4,7 @@ import 'package:zego_uikit/zego_uikit.dart';
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 
 import 'callservices.dart';
+import 'loing.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -79,7 +80,12 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          MaterialButton(onPressed: (){
+          Card(child:Column(children: [
+            Text("Username: ${sharedPreferences.getString("username")!}"),
+            Text("ID: ${sharedPreferences.getString("id")!}"),
+          ],),),
+          const SizedBox(height: 25),
+          IconButton(onPressed: (){
             ZegoSendCallInvitationButton(
               isVideoCall: true,
               resourceID: "eslamZagoApp",
@@ -91,7 +97,16 @@ class _HomePageState extends State<HomePage> {
               ],
             );
             },
-            child: Text("Call"),),
+            icon: Icon(Icons.call, size: 80, color: Colors.green),),
+
+          const SizedBox(height: 25),
+
+          IconButton(onPressed: (){
+            callservices.onUserLogout();
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (context) => const LoginPage()), (route) => false);
+            },
+              icon: Icon(Icons.logout, size: 80, color: Colors.red)),
 
         ],
       ),),
