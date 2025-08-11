@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_core: ^4.0.0
   firebase_messaging: ^16.0.0
-  zego_uikit: ^2.22.0
+  zego_uikit: ^2.25.2
   zego_uikit_prebuilt_call: ^4.17.10
   zego_uikit_signaling_plugin: ^2.8.15
   cached_network_image: ^3.4.1

@@ -85,9 +85,13 @@ class _HomePageState extends State<HomePage> {
             Text("ID: ${sharedPreferences.getString("id")!}"),
           ],),),
           const SizedBox(height: 25),
-          IconButton(onPressed: (){
+
+            MaterialButton(onPressed:() {
+              setState(() {
+              });
+            },child: const Text("refresh")),
             ZegoSendCallInvitationButton(
-              isVideoCall: true,
+              isVideoCall: false,
               resourceID: "eslamZagoApp",
               invitees: [
                 ZegoUIKitUser(
@@ -95,13 +99,12 @@ class _HomePageState extends State<HomePage> {
                   name: _usernameController.text,
                 ),
               ],
-            );
-            },
-            icon: Icon(Icons.call, size: 80, color: Colors.green),),
+            ),
 
           const SizedBox(height: 25),
 
           IconButton(onPressed: (){
+            sharedPreferences.clear();
             callservices.onUserLogout();
             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                     builder: (context) => const LoginPage()), (route) => false);
